@@ -9,8 +9,8 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "build": "echo success"
+    "build": "echo success",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
