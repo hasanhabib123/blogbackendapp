@@ -12,19 +12,19 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: "https://blogapplication-3aos.onrender.com", credentials: true }));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', Router);
 
 //step 3: Heroku
 
-if(process.env.NODE_ENV==="production"){
-    app.use(express.static("client/build"));
-    app.get("*",(request,response)=>{
-        response.sendFile(path.resolve(__dirname,'client', 'build', 'index.html'));
-    })
-}
+// if(process.env.NODE_ENV==="production"){
+//     app.use(express.static("client/build"));
+//     app.get("*",(request,response)=>{
+//         response.sendFile(path.resolve(__dirname,'client', 'build', 'index.html'));
+//     })
+// }
 
 const PORT = process.env.PORT || 8000;
 const USERNAME = process.env.DB_USERNAME;
